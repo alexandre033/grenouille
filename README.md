@@ -9,3 +9,5 @@ Weather application using some features like :
 
 If you have somme questions do not hesitate to contact me
 
+This project is still in progress
+
