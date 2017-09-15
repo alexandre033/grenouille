@@ -47,8 +47,9 @@ renderForecast(data){
 
 	render(){
 		const {weather} = this.props
-		console.log(weather)
 		return(
+		<div>
+			<h4>Weather Forecast</h4>
 			<Table 
 				selectable={this.state.selectable}
         		multiSelectable={this.state.multiSelectable}
@@ -59,6 +60,7 @@ renderForecast(data){
 	  				{weather.map(this.renderForecast)}
   				</TableBody>
 			</Table>
+		</div>
 
 
 			)

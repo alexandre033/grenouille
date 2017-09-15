@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchWeather} from '../actions';
 import {fetchForecast} from '../actions';
+import {fetchHourly} from '../actions';
 import AutoComplete from 'material-ui/AutoComplete';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -23,6 +24,7 @@ class SearchBar extends Component{
 	onClick(){
 		this.props.fetchWeather(this.state.term)
 		this.props.fetchForecast(this.state.term)
+		this.props.fetchHourly(this.state.term)
 	}
 
 	handleUpdateInput = (value) => {
@@ -51,4 +53,4 @@ class SearchBar extends Component{
 	}
 }
 
-export default connect(null, {fetchWeather, fetchForecast})(SearchBar);
+export default connect(null, {fetchWeather, fetchForecast, fetchHourly})(SearchBar);
