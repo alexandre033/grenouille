@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import SearchBar from '../containers/search_bar';
 import CurrentCityWeather from '../containers/current_city_weather';
 import ForecastCityWeather from '../containers/forecast_city_weather';
-import HourlyCityWeather from '../containers/hourly_city_weather';
+import ChartsHourly from '../containers/charts_hourly';
+import ChartsForecast from '../containers/charts_forecast';
 
 
 
@@ -16,9 +17,12 @@ export default class App extends Component{
 						<CurrentCityWeather />
 					</div>
 				</div>
-				<div className="container" id="hourly">
-						<HourlyCityWeather/>
+				<div className="jumbotron" id="hourly">
+					<div className="container" >
+							<ChartsHourly/>
+							<ChartsForecast/>
 					</div>
+				</div>
 					<div className="container" id="forecast">
 						<ForecastCityWeather/>
 					</div>
