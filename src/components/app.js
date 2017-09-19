@@ -11,7 +11,7 @@ export default class App extends Component{
 	render(){
 		return(
 			<div>
-				<div className="jumbotron">
+				<div className="jumbotron primary">
 					<div className="container">
 						<SearchBar/>
 						<CurrentCityWeather />

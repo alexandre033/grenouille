@@ -4,15 +4,15 @@ import axios from 'axios';
 const API_KEY = "4076f0195bc5431a";
 const URL_CONDITIONS = `http://api.wunderground.com/api/${API_KEY}/conditions/q/`;
 const URL_FORECAST = `http://api.wunderground.com/api/${API_KEY}/forecast10day/q/`;
-const URL_HOURLY = `http://api.wunderground.com/api/${API_KEY}/hourly/q/FR/`;
+const URL_HOURLY = `http://api.wunderground.com/api/${API_KEY}/hourly/q/`;
 export const FETCH_WEATHER = 'FETCH_WEATHER';
 export const FETCH_FORECAST = 'FETCH_FORECAST';
 export const FETCH_HOURLY = 'FETCH_HOURLY';
 
 //Fetch for current city weather
-export function fetchWeather(city){
+export function fetchWeather(lat, long){
 
-	const url = `${URL_CONDITIONS}FR/${city}.json`;
+	const url = `${URL_CONDITIONS}${lat},${long}.json`;
 	const request =  axios.get(url);
 	return {
 		type : FETCH_WEATHER,
@@ -20,9 +20,9 @@ export function fetchWeather(city){
 	}
 }
 
-export function fetchForecast(city){
+export function fetchForecast(lat, long){
 
-	const url = `${URL_FORECAST}FR/${city}.json`;
+	const url = `${URL_FORECAST}${lat},${long}.json`;
 	const request =  axios.get(url);
 	return {
 		type : FETCH_FORECAST,
@@ -30,10 +30,11 @@ export function fetchForecast(city){
 	}
 }
 
-export function fetchHourly(city){
+export function fetchHourly(lat, long){
 
-	const url = `${URL_HOURLY}${city}.json`;
-	const request =  axios.get(url);
+	const url = `${URL_HOURLY}${lat},${long}.json`;
+	console.log(url)
+	const request =  axios.get(url)
 	return {
 		type : FETCH_HOURLY,
 		payload : request

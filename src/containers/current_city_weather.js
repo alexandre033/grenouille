@@ -10,7 +10,7 @@ import WeatherIcons from '../components/weather_icons';
 class CityWeather extends Component{
 
 	renderCurrent(current, dataForecast){
-
+	
 		//vérification de la taille de l'objet afin d'éviter les undefined
 		if(Object.keys(current).length > 0 && Object.keys(dataForecast).length > 0){
 

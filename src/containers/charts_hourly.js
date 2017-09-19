@@ -5,7 +5,7 @@ import {Chart} from '../components/charts';
 class ChartsHourly extends Component{
 
 	renderHourly(data){
-
+		console.log(data)
 		if(Object.keys(data).length > 0 ){
 
 			const hourlyForecast = data.hourly_forecast.map(hourly => hourly)
@@ -39,7 +39,7 @@ class ChartsHourly extends Component{
 
 		return(
 			<div>
-				<h4>Temperatures & precipitations per hour</h4>
+				<h4>Hourly temperatures & precipitations</h4>
 				{hourly.map(this.renderHourly)}
 			</div>
 
