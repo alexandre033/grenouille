@@ -2,11 +2,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  font-family: 'Noto Sans', sans-serif;
-  background-color: rgb(48, 48, 48);
+  font-family: 'Roboto', sans-serif;
+  background-color: #164B58;
   color:white;
 
 }
+h4{
+	font-size: 1.2rem;
+	    padding: 5px;
+    margin: 0;
+}
+.container{text-align:center;}
+th h4{color: white}
 .primary{
 	background-image: url('./img/bg.png');
 	    height: 100vh;
@@ -33,14 +40,13 @@ body {
 
 #forecast{
 color:white;
+   margin-top: 28px;
 }
 #forecast table tbody tr td{
 	    border-bottom: 1px solid #757575;
 	    border-top: none;
 	    vertical-align: inherit;
-}
-#forecast .mdi-icon{
-	display: block!important
+	    text-align: center!important
 }
 .input-group{margin-bottom:30px;}
 .temp{
@@ -55,7 +61,7 @@ color:white;
 }
 .jumbotron{
 	text-align: center;
-	background-color: #1b39a8
+	background-color: #164B58
 }
 .weather-list li{
 	display: inline-block;
@@ -73,8 +79,27 @@ color:white;
 	width: 60px;
 	height: 60px
 }
-#hourly{
-	background-color: #D81B60
+
+.hourly{
+	margin-top:28px;
+}
+.hourly h4{
+	background-color: rgb(0,151,167);
+	margin:0;
+	padding: 5px;
+    font-size: 1.2rem;
+}
+.forecast{
+	margin-top: 28px;
+}
+.forecast h4{
+	background-color: rgb(0,151,167);
+	margin:0;
+	padding: 5px;
+    font-size: 1.2rem;
+}
+.recharts-wrapper{
+	background-color: #414141;
 }
 /* form starting stylings ------------------------------- */
 .group 			  { 
@@ -169,4 +194,12 @@ input:focus ~ .highlight {
 @keyframes inputHighlighter {
 	from { background:#5264AE; }
   to 	{ width:0; background:transparent; }
+}
+.alert-city-appear {
+  opacity: 0;
+}
+
+.alert-city-appear.alert-city-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
 }

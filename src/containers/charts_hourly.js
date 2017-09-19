@@ -5,13 +5,12 @@ import {Chart} from '../components/charts';
 class ChartsHourly extends Component{
 
 	renderHourly(data){
-		console.log(data)
 		if(Object.keys(data).length > 0 ){
 
 			const hourlyForecast = data.hourly_forecast.map(hourly => hourly)
-			const temps = hourlyForecast.map(temp => parseInt(temp.temp.metric))
+			const temps = hourlyForecast.map(temp => parseInt(temp.temp.metric, 10))
 			const hours = hourlyForecast.map(time => time.FCTTIME.hour)
-			const precipitation = hourlyForecast.map(prec => parseInt(prec.qpf.metric))
+			const precipitation = hourlyForecast.map(prec => parseInt(prec.qpf.metric, 10))
  			const dataTempHour = []
 
 			for(var i = 0; i<temps.length;i++){
@@ -21,10 +20,12 @@ class ChartsHourly extends Component{
 
 			return(
 					<div>
-						<div className='col-md-6'>
+						<div className='col-md-6 hourly'>
+						<h4>Hourly Temperatures (c°)</h4>
 							<Chart datas={dataTempHour} dataKey="temp"/>
 						</div>
-						<div className='col-md-6'>
+						<div className='col-md-6 hourly'>
+						<h4>Hourly Precipitations (mm)</h4>
 							<Chart datas={dataTempHour} dataKey="qpf"/>
 						</div>		
 					</div>
@@ -39,7 +40,6 @@ class ChartsHourly extends Component{
 
 		return(
 			<div>
-				<h4>Hourly temperatures & precipitations</h4>
 				{hourly.map(this.renderHourly)}
 			</div>
 

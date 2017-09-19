@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import _ from 'lodash';
 import {connect} from 'react-redux';
 import OilTemperatureIcon from 'mdi-react/OilTemperatureIcon';
 import WeatherWindyIcon from 'mdi-react/WeatherWindyIcon';
@@ -28,7 +27,7 @@ class CityWeather extends Component{
 						<ul className="weather-list">
 							<li><span><WaterPercentIcon/></span>{forec[0][0].avehumidity}%</li>
 							<li><span><OilTemperatureIcon/></span>{forec[0][0].high.celsius}° {forec[0][0].low.celsius}° </li>
-							<li><span><WeatherWindyIcon/></span>{forec[0][0].avewind.kph}</li>
+							<li><span><WeatherWindyIcon/></span>{forec[0][0].avewind.kph} kph</li>
 						</ul>
 					</div>
 				</div>

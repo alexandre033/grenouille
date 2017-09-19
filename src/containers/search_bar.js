@@ -4,10 +4,8 @@ import {connect} from 'react-redux';
 import {fetchWeather} from '../actions';
 import {fetchForecast} from '../actions';
 import {fetchHourly} from '../actions';
-import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-
-
+import CompassOutlineIcon from 'mdi-react/CompassOutlineIcon'
 
 class SearchBar extends Component{
 
@@ -17,10 +15,20 @@ class SearchBar extends Component{
 		this.onClick = this.onClick.bind(this)
 		this.handleUpdateInput = this.handleUpdateInput.bind(this)
 	}
-	onClick(){
+
+	onClick(e){
+		if(!this.state.lat || !this.state.long){
+	
+				e.preventDefault()
+			
+		}else{
+
 		this.props.fetchWeather(this.state.lat, this.state.long)
 		this.props.fetchForecast(this.state.lat, this.state.long)
 		this.props.fetchHourly(this.state.lat, this.state.long)
+
+		}
+		
 	}
 
 	handleUpdateInput(e) {
@@ -29,10 +37,8 @@ class SearchBar extends Component{
 			  componentRestrictions: {country: 'fr'}
 			};
 		const autocomplete = new google.maps.places.Autocomplete((this.refs.AutoCompletePlaces), options);
-		console.log(autocomplete)
 		autocomplete.addListener('place_changed', function(){
 			let place = autocomplete.getPlace();
-			console.log(place.geometry.location.lat() +"--"+place.geometry.location.lng())
 			this.setState({
 	      		lat: [place.geometry.location.lat()],
 	      		long: [place.geometry.location.lng()]
@@ -43,8 +49,11 @@ class SearchBar extends Component{
 
 
 	render(){
-		
+		const style={
+			color : "white"
+		}
 		return(
+			
 				<div className="input-group group">
         			<input type="text" 
         			ref="AutoCompletePlaces"
@@ -56,7 +65,7 @@ class SearchBar extends Component{
 					<span className="bar"></span>
 					<label>Find your city weather</label>
 					<span className="input-group-btn">
-						<RaisedButton onClick={this.onClick} label="Show weather" primary={true}/>
+						<RaisedButton backgroundColor="white" onClick={this.onClick} primary={true} icon={<CompassOutlineIcon/>}/>
 					</span>
 				</div>
 

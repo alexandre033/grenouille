@@ -13,19 +13,18 @@ export default class App extends Component{
 			<div>
 				<div className="jumbotron primary">
 					<div className="container">
-						<SearchBar/>
-						<CurrentCityWeather />
+						<SearchBar/>	
 					</div>
 				</div>
-				<div className="jumbotron" id="hourly">
-					<div className="container" >
-							<ChartsHourly/>
-							<ChartsForecast/>
-					</div>
+
+				<div className="container">
+					<CurrentCityWeather />
+					<ChartsHourly/>
+					<ChartsForecast/>
 				</div>
-					<div className="container" id="forecast">
-						<ForecastCityWeather/>
-					</div>
+				<div className="container" id="forecast">
+					<ForecastCityWeather/>
+				</div>
 				
 			</div>
 			)

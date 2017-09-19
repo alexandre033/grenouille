@@ -7,7 +7,7 @@ class ChartsForecast extends Component{
 	renderChartsForecast(forecastData){
 
 			const forecast = forecastData.forecast.simpleforecast.forecastday;
-			const forecastTemp = forecast.map(data => parseInt(data.high.celsius));
+			const forecastTemp = forecast.map(data => parseInt(data.high.celsius, 10));
 			const days = forecast.map(data => data.date.weekday);
 			const precipitations =  forecast.map(data => data.qpf_day.mm);
 			const data = []
@@ -16,13 +16,14 @@ class ChartsForecast extends Component{
 
 				data.push({name: days[i], temp:forecastTemp[i], qpf:precipitations[i]})
 			}
-			console.log(data)
 		return (
 			<div>
-				<div className="col-md-6">
+				<div className="col-md-6 forecast">
+				<h4>Forecast Temperatures (c°)</h4>
 					<Chart dataKey="temp" datas={data}/>
 				</div>
-				<div className="col-md-6">
+				<div className="col-md-6 forecast">
+				<h4>Forecast Precipitations (mm)</h4>
 					<Chart dataKey="qpf" datas={data}/>
 				</div>
 			</div>)
@@ -34,7 +35,6 @@ class ChartsForecast extends Component{
 		return(
 
 			<div>
-			<h4>Forecast temperatures & precipitations</h4>
 				{forecast.map(this.renderChartsForecast)}
 			</div>
 			)

@@ -5,6 +5,8 @@ import {
   TableBody,
   TableRow,
   TableRowColumn,
+  TableHeader,
+  TableHeaderColumn
 } from 'material-ui/Table';
 
 import WeatherIcons from '../components/weather_icons';
@@ -25,9 +27,10 @@ class ForecastCityWeather extends Component{
 		    showCheckboxes: false,
 
 		  };
+		  this.renderForecast = this.renderForecast.bind(this)
 	}
 
-renderForecast(data){
+renderForecast(data, props){
 
 	const forecast = data.forecast.simpleforecast.forecastday;
 	const forecastDay = forecast.map(data => 
@@ -36,34 +39,40 @@ renderForecast(data){
 		<TableRowColumn>{data.date.weekday}</TableRowColumn>
 		<TableRowColumn>{data.conditions}</TableRowColumn>
 		<TableRowColumn><span>{data.low.celsius}°c</span><br/><span>{data.high.celsius}°c</span></TableRowColumn>
-		</TableRow>)
+		</TableRow>
+		);
 
-	return forecastDay
-	
 
+		return (
+			<Table 
+			selectable={this.state.selectable}
+        	multiSelectable={this.state.multiSelectable}
+        	style={{backgroundColor: '#414141'}}
+			>
+				<TableHeader
+            	displaySelectAll={this.state.showCheckboxes}
+            	adjustForCheckbox={this.state.showCheckboxes}
+            	enableSelectAll={this.state.enableSelectAll}
+            	style={{backgroundColor: 'rgb(0,151,167)', borderBottom:'none'}}
+          		>
+
+                		<h4>Weather Forecast</h4>
+          		</TableHeader>
+		
+  				<TableBody
+  				displayRowCheckbox={this.state.showCheckboxes}
+  				>
+				{forecastDay}
+				</TableBody>
+			</Table>
+			)
 
 }
 
 
 	render(){
 		const {weather} = this.props
-		return(
-		<div>
-			<h4>Weather Forecast</h4>
-			<Table 
-				selectable={this.state.selectable}
-        		multiSelectable={this.state.multiSelectable}
-			>
-  				<TableBody
-  				displayRowCheckbox={this.state.showCheckboxes}
-  				>
-	  				{weather.map(this.renderForecast)}
-  				</TableBody>
-			</Table>
-		</div>
-
-
-			)
+		return(<div>{weather.map(this.renderForecast)}</div>)
 	}
 }
 
