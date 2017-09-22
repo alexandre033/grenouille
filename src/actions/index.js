@@ -9,11 +9,15 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 export const FETCH_FORECAST = 'FETCH_FORECAST';
 export const FETCH_HOURLY = 'FETCH_HOURLY';
 
+const config = {
+	headers: {'X-Requested-With': 'XMLHttpRequest'},
+}
+
 //Fetch for current city weather
 export function fetchWeather(lat, long){
 
 	const url = `${URL_CONDITIONS}${lat},${long}.json`;
-	const request =  axios.get(url)
+	const request =  axios.get(url, config)
 
 	return {
 		type : FETCH_WEATHER,
@@ -24,7 +28,7 @@ export function fetchWeather(lat, long){
 export function fetchForecast(lat, long){
 
 	const url = `${URL_FORECAST}${lat},${long}.json`;
-	const request =  axios.get(url);
+	const request =  axios.get(url, config);
 	return {
 		type : FETCH_FORECAST,
 		payload : request
@@ -35,7 +39,7 @@ export function fetchHourly(lat, long){
 
 	const url = `${URL_HOURLY}${lat},${long}.json`;
 	console.log(url)
-	const request =  axios.get(url)
+	const request =  axios.get(url, config)
 	return {
 		type : FETCH_HOURLY,
 		payload : request
