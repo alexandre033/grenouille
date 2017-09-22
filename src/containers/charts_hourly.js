@@ -17,9 +17,8 @@ class ChartsHourly extends Component{
 				dataTempHour.push({name:hours[i], temp: temps[i], qpf:precipitation[i]})
 			}
 					
-
 			return(
-					<div>
+					<div key={temps[0]}>
 						<div className='col-md-6 hourly'>
 						<h4>Hourly Temperatures (c°)</h4>
 							<Chart datas={dataTempHour} dataKey="temp"/>

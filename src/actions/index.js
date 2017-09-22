@@ -13,7 +13,8 @@ export const FETCH_HOURLY = 'FETCH_HOURLY';
 export function fetchWeather(lat, long){
 
 	const url = `${URL_CONDITIONS}${lat},${long}.json`;
-	const request =  axios.get(url);
+	const request =  axios.get(url)
+
 	return {
 		type : FETCH_WEATHER,
 		payload : request

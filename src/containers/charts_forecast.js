@@ -17,14 +17,14 @@ class ChartsForecast extends Component{
 				data.push({name: days[i], temp:forecastTemp[i], qpf:precipitations[i]})
 			}
 		return (
-			<div>
-				<div className="col-md-6 forecast">
+			<div key={forecastTemp[0]}>
+				<div className="col-md-6 forecast" >
 				<h4>Forecast Temperatures (c°)</h4>
-					<Chart dataKey="temp" datas={data}/>
+					<Chart dataKey="temp" datas={data} key={forecastTemp}/>
 				</div>
 				<div className="col-md-6 forecast">
 				<h4>Forecast Precipitations (mm)</h4>
-					<Chart dataKey="qpf" datas={data}/>
+					<Chart dataKey="qpf" datas={data} />
 				</div>
 			</div>)
 	}

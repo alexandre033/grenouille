@@ -16,7 +16,7 @@ h4{
 th h4{color: white}
 .primary{
 	background-image: url('./img/bg.png');
-	    height: 100vh;
+	    height: 99vh;
     position: relative;
     text-align: center;
     width: 100%;
@@ -202,4 +202,12 @@ input:focus ~ .highlight {
 .alert-city-appear.alert-city-appear-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
+}
+#footer{
+	    text-align: center;
+    font-size: 12px;
+    margin-top: 20px;
+}
+#footer svg{
+	fill:#E91E63!important;
 }

@@ -6,7 +6,6 @@ import {
   TableRow,
   TableRowColumn,
   TableHeader,
-  TableHeaderColumn
 } from 'material-ui/Table';
 
 import WeatherIcons from '../components/weather_icons';
@@ -48,6 +47,7 @@ renderForecast(data, props){
 			selectable={this.state.selectable}
         	multiSelectable={this.state.multiSelectable}
         	style={{backgroundColor: '#414141'}}
+        	key={forecast[0].period}
 			>
 				<TableHeader
             	displaySelectAll={this.state.showCheckboxes}
@@ -55,8 +55,7 @@ renderForecast(data, props){
             	enableSelectAll={this.state.enableSelectAll}
             	style={{backgroundColor: 'rgb(0,151,167)', borderBottom:'none'}}
           		>
-
-                		<h4>Weather Forecast</h4>
+                	<h4>Weather Forecast</h4>
           		</TableHeader>
 		
   				<TableBody

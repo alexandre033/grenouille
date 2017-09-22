@@ -4,13 +4,19 @@ import CurrentCityWeather from '../containers/current_city_weather';
 import ForecastCityWeather from '../containers/forecast_city_weather';
 import ChartsHourly from '../containers/charts_hourly';
 import ChartsForecast from '../containers/charts_forecast';
+import {connect} from 'react-redux';
 
 
 
-export default class App extends Component{
+
+class App extends Component{
+	
+
 	render(){
+
 		return(
 			<div>
+
 				<div className="jumbotron primary">
 					<div className="container">
 						<SearchBar/>	
@@ -24,9 +30,17 @@ export default class App extends Component{
 				</div>
 				<div className="container" id="forecast">
 					<ForecastCityWeather/>
+
 				</div>
-				
 			</div>
 			)
 	}
 }
+
+const mapStateToProps = function (store) {
+  return {
+    data: store.data,
+  };
+};
+
+export default connect(mapStateToProps)(App)

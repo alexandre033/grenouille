@@ -11,22 +11,29 @@ class SearchBar extends Component{
 
 	constructor(props){
 		super(props);
-		this.state = {term:[], lat : "", long:""}
+		this.state = {term:[], lat : "", long:"", value:""}
 		this.onClick = this.onClick.bind(this)
 		this.handleUpdateInput = this.handleUpdateInput.bind(this)
 	}
 
 	onClick(e){
+		let windowheight = window.innerHeight
 		if(!this.state.lat || !this.state.long){
-	
-				e.preventDefault()
-			
-		}else{
-
+				e.preventDefault()	
+				alert('A value is needed')	
+		}else{		
 		this.props.fetchWeather(this.state.lat, this.state.long)
 		this.props.fetchForecast(this.state.lat, this.state.long)
 		this.props.fetchHourly(this.state.lat, this.state.long)
-
+			setTimeout(function () {
+	            window.scroll({
+				  top: windowheight, 
+				  left: 0, 
+				  behavior: 'smooth' 
+				});
+	        },400);
+	        let y = window.scrollY
+	        console.log(y)
 		}
 		
 	}
@@ -49,9 +56,7 @@ class SearchBar extends Component{
 
 
 	render(){
-		const style={
-			color : "white"
-		}
+
 		return(
 			
 				<div className="input-group group">

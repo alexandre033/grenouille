@@ -1,5 +1,5 @@
 import React from 'react';
-import { Line, XAxis, YAxis, Area, AreaChart, Tooltip,
+import {XAxis, YAxis, Area,Tooltip,
   ResponsiveContainer , ComposedChart, Legend} from 'recharts';
 
 
