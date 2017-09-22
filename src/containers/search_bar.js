@@ -26,7 +26,7 @@ class SearchBar extends Component{
 		this.props.fetchForecast(this.state.lat, this.state.long)
 		this.props.fetchHourly(this.state.lat, this.state.long)
 			setTimeout(function () {
-	            window.scroll({
+	            window.scrollTo({
 				  top: windowheight, 
 				  left: 0, 
 				  behavior: 'smooth' 
